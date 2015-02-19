@@ -28,8 +28,9 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wja-2X-fnw">
                                             <rect key="frame" x="12" y="12" width="295" height="140"/>
+                                            <color key="backgroundColor" red="0.86530671296296291" green="1" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.32549019610000002" green="0.72941176470000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -41,12 +42,32 @@
                                     <constraint firstAttribute="bottom" secondItem="Wja-2X-fnw" secondAttribute="bottom" constant="12" id="ZWj-V8-u7I"/>
                                     <constraint firstItem="Wja-2X-fnw" firstAttribute="top" secondItem="J3D-fe-tHl" secondAttribute="top" constant="12" id="bb8-fm-0Ug"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="titleLabel" destination="Wja-2X-fnw" id="97S-Nw-9LI"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="r0y-Ui-AGv">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="r0y-Ui-AGv" customClass="HeaderView" customModule="Demo" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3G-qp-jKr">
+                                    <rect key="frame" x="12" y="12" width="576" height="26"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Y3G-qp-jKr" firstAttribute="top" secondItem="r0y-Ui-AGv" secondAttribute="top" constant="12" id="Gcg-wl-lQa"/>
+                                <constraint firstItem="Y3G-qp-jKr" firstAttribute="leading" secondItem="r0y-Ui-AGv" secondAttribute="leading" constant="12" id="UUK-Dh-Cic"/>
+                                <constraint firstAttribute="trailing" secondItem="Y3G-qp-jKr" secondAttribute="trailing" constant="12" id="YxY-C1-tfE"/>
+                                <constraint firstAttribute="bottom" secondItem="Y3G-qp-jKr" secondAttribute="bottom" constant="12" id="a0A-cD-MMU"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="titleLabel" destination="Y3G-qp-jKr" id="73n-Vg-zBc"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="8U5-P0-QOW" id="pfB-DT-SNd"/>

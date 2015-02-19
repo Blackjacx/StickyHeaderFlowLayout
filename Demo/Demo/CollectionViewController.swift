@@ -37,7 +37,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
  
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIDTitleCell, forIndexPath: indexPath) as! TitleCell
-//		cell.titleLabel.text = "Hello Cell at IndexPath (\(indexPath.section), \(indexPath.item))"
+		cell.titleLabel.text = "(\(indexPath.section), \(indexPath.item))"
 		return cell
 	}
 	
@@ -55,6 +55,10 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
 	// MARK: UICollectionViewDelegateFlowLayout
 	
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-		return CGSizeMake(self.view.frame.size.width, 4*12)
+		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+			return CGSizeMake(8*12, 8*12)
+		} else {
+			return CGSizeMake(self.view.frame.size.width, 4*12)
+		}
 	}
 }

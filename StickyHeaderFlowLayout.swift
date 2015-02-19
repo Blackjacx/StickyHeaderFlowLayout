@@ -154,12 +154,7 @@ class StickyHeaderFlowLayout: UICollectionViewFlowLayout {
 	}
 	
 	override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-		if let bounds = self.collectionView?.bounds {
-			if CGRectGetWidth(bounds) != CGRectGetWidth(newBounds) {
-				return true
-			}
-		}
-		return false
+		return true
 	}
 	
 	// MARK: Overrides
