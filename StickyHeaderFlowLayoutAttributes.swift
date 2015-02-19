@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StickyHeaderFlowLayoutAttributes: UICollectionViewFlowLayout {
+class StickyHeaderFlowLayoutAttributes: UICollectionViewLayoutAttributes {
 	// 0 = minimized, 1 = fully expanded, > 1 = stretched
 	var progressiveness = 1
 }
