@@ -43,14 +43,14 @@ class StickyHeaderFlowLayout: UICollectionViewFlowLayout {
 		var visibleParallaxHeader = false
 		
 		for obj in allItems {
-			let attributes = obj as UICollectionViewLayoutAttributes
+			let attributes = obj as! StickyHeaderFlowLayoutAttributes
 			let indexPath = attributes.indexPath
 			
 			attributes.frame.origin.y += parallaxHeaderReferenceSize.height
 			
-			if attributes.representedElementKind == UICollectionElementKindSectionHeader {
+			if let representedElementKind = obj.representedElementKind where representedElementKind == UICollectionElementKindSectionHeader {
 				headers[indexPath.section] = obj
-			} else if attributes.representedElementKind == UICollectionElementKindSectionFooter {
+			} else if let let representedElementKind = obj.representedElementKind where representedElementKind == UICollectionElementKindSectionFooter {
 				// Not implemented
 			} else {
 				let currentAttribute = lastCells[indexPath.section]
@@ -133,7 +133,7 @@ class StickyHeaderFlowLayout: UICollectionViewFlowLayout {
 							allItems.append(header!)
 						}
 					}
-					self.updateHeaderAttributes(header!, lastCellAttributes: lastCells[indexPath.section]!)
+					self.updateHeaderAttributes(header, lastCellAttributes: lastCells[indexPath.section]!)
 				}
 			}
 		}
@@ -170,8 +170,8 @@ class StickyHeaderFlowLayout: UICollectionViewFlowLayout {
 	
 	// MARK: Helper
 	
-	private func updateHeaderAttributes(attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes) {
-		if let collectionView = self.collectionView {
+	private func updateHeaderAttributes(attributes: UICollectionViewLayoutAttributes?, lastCellAttributes: UICollectionViewLayoutAttributes) {
+		if let collectionView = self.collectionView, attributes = attributes {
 			let currentBounds = collectionView.bounds
 			attributes.zIndex = 1024
 			attributes.hidden = false

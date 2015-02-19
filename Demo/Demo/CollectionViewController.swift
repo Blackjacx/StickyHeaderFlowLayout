@@ -37,7 +37,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
  
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIDTitleCell, forIndexPath: indexPath) as! TitleCell
-		cell.titleLabel.text = "Hello Cell at IndexPath (\(indexPath.section), \(indexPath.item))"
+//		cell.titleLabel.text = "Hello Cell at IndexPath (\(indexPath.section), \(indexPath.item))"
 		return cell
 	}
 	
